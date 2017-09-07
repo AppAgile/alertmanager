@@ -499,6 +499,7 @@ type slackReq struct {
 	IconEmoji   string            `json:"icon_emoji,omitempty"`
 	IconURL     string            `json:"icon_url,omitempty"`
 	Attachments []slackAttachment `json:"attachments"`
+	Text        string            `json:"text"`
 }
 
 // slackAttachment is used to display a richly-formatted message block.
@@ -542,6 +543,7 @@ func (n *Slack) Notify(ctx context.Context, as ...*types.Alert) (bool, error) {
 		Username:    tmplText(n.conf.Username),
 		IconEmoji:   tmplText(n.conf.IconEmoji),
 		IconURL:     tmplText(n.conf.IconURL),
+		Text:        tmplText(n.conf.Title),
 		Attachments: []slackAttachment{*attachment},
 	}
 	if err != nil {
