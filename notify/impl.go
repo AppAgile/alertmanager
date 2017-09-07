@@ -499,7 +499,7 @@ type slackReq struct {
 	IconEmoji   string            `json:"icon_emoji,omitempty"`
 	IconURL     string            `json:"icon_url,omitempty"`
 	Attachments []slackAttachment `json:"attachments"`
-	Text        string            `json:"text"`
+	Text        string            `json:"text,omitempty"`
 }
 
 // slackAttachment is used to display a richly-formatted message block.
